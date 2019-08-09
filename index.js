@@ -20,8 +20,14 @@ function createStore() {
     }
   }
 
+  const dispatch = (action) => {
+    state = todos(state, action)
+    listeners.forEach((listener) => listener())
+  }
+
   return {
     getState,
-    subscribe
+    subscribe,
+    dispatch
   }
 }
