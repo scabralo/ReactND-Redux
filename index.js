@@ -53,7 +53,13 @@ function goals(state = [], action) {
     default:
       return state
   }
-
 }
 
-const store = createStore(todos)
+function app(state = {}, action) {
+  return {
+    todos: todos(state.todos, action),
+    goals: goals(state.goals, action)
+  }
+}
+
+const store = createStore(app)
