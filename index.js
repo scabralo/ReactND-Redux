@@ -32,9 +32,6 @@ function createStore (reducer) {
 
 // App Code
 function todos (state = [], action) {
-  if (action.type === 'ADD_TODO') {
-    return state.concat([action.todo])
-  }
   switch(action.type) {
     case 'ADD_TODO' :
       return state.concat([action.todo])
@@ -44,7 +41,6 @@ function todos (state = [], action) {
       return state.map((todo) => todo.id !== action.id ? todo : Object.assign({}, todo, { Complete: !todo.complete }))
     default:
       return state
-
   }
 }
 
